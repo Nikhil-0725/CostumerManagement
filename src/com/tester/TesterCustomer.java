@@ -73,7 +73,9 @@ public class TesterCustomer {
 						System.out.println("Unsubscribe...\n");
 						System.out.println("Enter Email : ");
 						mail=sc.next();
-						
+						int id=custList.indexOf(new Customer(mail));
+						custList.get(id).setPlan(ServicePlan.NONE);
+						custList.get(id).setRegAmount(0);
 						
 						break;
 					case 5:

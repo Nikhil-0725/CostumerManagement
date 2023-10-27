@@ -20,6 +20,14 @@ public class Customer {
 		return idCounter;
 	}
 
+	public void setPlan(ServicePlan plan) {
+		this.plan = plan;
+	}
+
+	public void setRegAmount(double regAmount) {
+		this.regAmount = regAmount;
+	}
+
 	public String getfName() {
 		return fName;
 	}
