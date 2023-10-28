@@ -2,11 +2,16 @@ package com.tester;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
 import com.classes.Customer;
 import com.enums.*;
+import com.utils.CustomerDOBComparator;
+import com.utils.CustomerData;
 import com.validations.ValidateAll;
 import com.validations.ValidationMethods;
 
@@ -15,11 +20,12 @@ public class TesterCustomer {
 		try(Scanner sc=new Scanner(System.in)){
 			
 			int ch=1;
-			List<Customer> custList=new ArrayList<>();
+			List<Customer> custList=CustomerData.populateCustomers();
 			
 			while(ch!=0) {
 
 				System.out.println("\n\nSelect 1.SignUp 2.SignIn 3.Change Password 4.Unsubscribe 5.Display All customer 0.Exit");
+				System.out.println("For Sorting Select 6.On Email 7.On DOB 8.On DOB & LName");
 				System.out.print("Enter Choice: ");
 				ch=sc.nextInt();
 				
@@ -84,6 +90,37 @@ public class TesterCustomer {
 							System.out.println(a);
 						}
 						
+						break;
+					case 6:
+						System.out.println("Sorting on basis of email...");		//natural ordering
+						Collections.sort(custList);
+						break;
+					case 7:
+						System.out.println("Sorting as per date of birth...");		//custom ordering
+						Collections.sort(custList,new CustomerDOBComparator());
+						break;
+					case 8:
+						System.out.println("Sorting as per D.O.B and last name...");		//anonymous inner class
+						
+						Collections.sort(custList,new Comparator<Customer>() {
+							@Override
+							public int compare(Customer c1,Customer c2) {
+								System.out.println("In compare : DOB & lName");
+								int ret=c1.getDob().compareTo(c2.getDob());
+								if(ret == 0) {
+									int res=c1.getlName().compareTo(c2.getlName());
+									if(0<res)
+										return 1;
+									if(0==res)
+										return 0;
+									return -1;
+								}
+								return ret;
+							}
+						});
+						
+						break;
+					case 9:
 						break;
 					case 0:
 						System.out.println("Exit");

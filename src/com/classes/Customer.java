@@ -2,7 +2,7 @@ package com.classes;
 import java.time.LocalDate;
 import com.enums.ServicePlan;
 
-public class Customer {
+public class Customer implements Comparable<Customer> {
 	
 	public String getPass() {
 		return pass;
@@ -93,5 +93,11 @@ public class Customer {
 			return this.email.equals(((Customer)anotherObj).email);
 		}
 		return false;
+	}
+	
+	@Override
+	public int compareTo(Customer anotherCustomer) {		// to override compareTo must implement Comparable<T>
+		System.out.println("Inside compareTo");
+		return this.email.compareTo(((Customer)anotherCustomer).email);
 	}
 }
