@@ -52,12 +52,16 @@ public class Customer implements Comparable<Customer> {
 		return plan;
 	}
 
+	public LocalDate getLastSubscriptionPaidDate() {
+		return lastSubscriptionPaidDate;
+	}
+
 	private int id;
 	public static int idCounter;
 	private String fName,lName;
 	private String email,pass;
 	private double regAmount;
-	private LocalDate dob;
+	private LocalDate dob,lastSubscriptionPaidDate;
 	private ServicePlan plan;
 	
 	static {
@@ -65,7 +69,7 @@ public class Customer implements Comparable<Customer> {
 	}
 	
 	public Customer(String fName, String lName, String email, String pass, double regAmount, LocalDate dob,
-			String plan) {
+			String plan, LocalDate lastSubscriptionPaidDate) {
 		super();
 		this.id = idCounter;
 		this.fName = fName;
@@ -75,6 +79,7 @@ public class Customer implements Comparable<Customer> {
 		this.regAmount = regAmount;
 		this.dob = dob;
 		this.plan = ServicePlan.valueOf(plan);
+		this.lastSubscriptionPaidDate=lastSubscriptionPaidDate;
 	}
 
 	public Customer(String email) {
@@ -84,7 +89,7 @@ public class Customer implements Comparable<Customer> {
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", fName=" + fName + ", lName=" + lName + ", email=" + email + ", pass=" + pass
-				+ ", regAmount=" + regAmount + ", dob=" + dob + ", plan=" + plan + "]";
+				+ ", regAmount=" + regAmount + ", dob=" + dob + ", plan=" + plan + ", lastSubscriptionPaidDate=" + lastSubscriptionPaidDate + "]";
 	}
 	
 	@Override

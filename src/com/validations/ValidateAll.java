@@ -18,7 +18,7 @@ public class ValidateAll {
 		ValidationMethods.validateEmail(email, custList);
 		ValidationMethods.validatePass(pass);
 		
-		Customer c1=new Customer( fName, lName, email, pass, regAmount, dob,  plan );
+		Customer c1=new Customer( fName, lName, email, pass, regAmount, dob,  plan, LocalDate.now() );
 		
 		return c1;
 	}

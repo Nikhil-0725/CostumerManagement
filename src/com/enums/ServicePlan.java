@@ -10,9 +10,6 @@ public enum ServicePlan {
 	public double getPlans() {
 		return planCost;
 	}
-	public void setPlans(double planCost) {
-		this.planCost = planCost;
-	}
 	
 	@Override
 	public String toString() {

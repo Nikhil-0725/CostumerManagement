@@ -1,8 +1,7 @@
 package com.tester;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Collection;
+import java.time.Period;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -26,6 +25,7 @@ public class TesterCustomer {
 
 				System.out.println("\n\nSelect 1.SignUp 2.SignIn 3.Change Password 4.Unsubscribe 5.Display All customer 0.Exit");
 				System.out.println("For Sorting Select 6.On Email 7.On DOB 8.On DOB & LName");
+				System.out.println("9.To Show Customer with Expired Plan");
 				System.out.print("Enter Choice: ");
 				ch=sc.nextInt();
 				
@@ -123,7 +123,12 @@ public class TesterCustomer {
 						
 						break;
 					case 9:
-						
+						for(Customer c:custList) {
+							Period p=Period.between(c.getLastSubscriptionPaidDate(), LocalDate.now());
+							if(p.getMonths() >= 3) {
+								System.out.println(c);
+							}
+						}
 						break;
 					case 0:
 						System.out.println("Exit");
