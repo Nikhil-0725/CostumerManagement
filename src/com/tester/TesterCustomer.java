@@ -63,6 +63,8 @@ public class TesterCustomer {
 						
 						ValidationMethods.validateLogin(sc.next(), sc.next(), custList);
 						
+						System.out.println("Email and Password Validation Succesful...");
+						
 						break;
 					case 3:
 						System.out.println("Change Password\n");
@@ -121,6 +123,7 @@ public class TesterCustomer {
 						
 						break;
 					case 9:
+						
 						break;
 					case 0:
 						System.out.println("Exit");
