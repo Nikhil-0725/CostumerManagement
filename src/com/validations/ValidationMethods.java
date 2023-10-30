@@ -31,7 +31,7 @@ public class ValidationMethods {
 	public static void validateEmail(String email, List<Customer> custList) throws LoginValidation {
 		String regexPattern = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
 //		System.out.println(Pattern.compile(regexPattern).matcher(email).matches());
-		if(!(Pattern.compile(regexPattern).matcher(email).matches()))
+		if(!(Pattern.compile(regexPattern).matcher(email).matches())) // OR  (!email.matches(regexPattern))
 			throw new LoginValidation("Enter Valid Password.");
 		
 //		Customer c1=new Customer(email);
@@ -50,7 +50,7 @@ public class ValidationMethods {
 	public static void validatePass(String pass) throws LoginValidation {
 		String regexPattern="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,20}$";
 //		System.out.println(Pattern.compile(regexPattern).matcher(pass).matches());
-		if(!(Pattern.compile(regexPattern).matcher(pass).matches()))
+		if(!(Pattern.compile(regexPattern).matcher(pass).matches()))		//	OR (!email.matches(regexPattern))
 			throw new LoginValidation("Enter Valid Password.");
 	}
 	
